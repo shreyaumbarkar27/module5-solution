@@ -1,0 +1,18 @@
+$ajaxUtils.sendGetRequest(
+  allCategoriesUrl,
+  function (categories) {
+
+    var randomIndex = Math.floor(Math.random() * categories.length);
+    var randomCategory = categories[randomIndex];
+    var randomCategoryShortName = randomCategory.short_name;
+
+    var homeHtmlToInsertIntoMainPage = insertProperty(
+      homeHtml,
+      "randomCategoryShortName",
+      "'" + randomCategoryShortName + "'"
+    );
+
+    insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+  },
+  false
+);
